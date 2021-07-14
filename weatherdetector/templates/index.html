@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<title>Weather Detector</title>
+	<style>
+		.row{
+			padding-left: 20px;
+			margin-left: 0px; 
+			margin-right: 0px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="row" style="background: grey; color: white;">
+		<h1 class="col-md-4 text-center" style="margin-bottom: 20px;"> Weather Detector App</h1>
+	</nav>
+	<br>
+	<br>
+	<div class="row">
+		<form action="" method="POST" class="col-md-6">
+			{% csrf_token %}
+			<div class="input-group input-group-btn">
+				<h4>Enter a city name:</h4>
+				<input type="text" name="city" placeholder="Search" class="form-control" style="width: 526px">
+				<button class="btn btn-default glyphicon glyphicon-search" type="submit" 
+				style="margin-left: -1; top: 0px; bottom: auto; height: 34px;"></button>
+			</div>
+		</form>
+	</div>
+	{% if name is not None %}
+	<div class="row">
+		<div class="col-md-6">
+			<h1>{{name}}, {{country_code}} </h1>
+			<ul>
+				<li><h5>Coordinate: {{coordinate}} </h5></li>
+				<li><h5>Weather: {{weather}} </h5></li>
+				<li><h5>Temperature: {{temp}} </h5></li>
+				<li><h5>Air pressure: {{pressure}} </h5></li>
+				<li><h5>Humidity: {{humidity}}</h5></li>
+			</ul>
+		</div>
+	</div>
+	{% endif %}
+	{% if msg is not None %}
+	<div class="row">
+		<div class="col-md-6">
+			<h1>{{msg}}</h1>
+		</div>
+	</div>
+	{% endif %}
+</body>
+</html>

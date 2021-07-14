@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<h1>
+	Django template.
+</h1>
+Author <b>{{name}}</b><br>
+Age: {{age}} <br>
+Nationality: {{nationality}} <br>
+
+<h3>Input your text below:</h3>
+<form method="POST" action="counter">
+	{% csrf_token %}
+	<textarea name="text" id="" cols="75" rows="20"></textarea><br>
+	<input type="submit">
+</form>

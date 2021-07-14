@@ -1,0 +1,15 @@
+{% if request.method == 'GET' %}
+<h1>List of posts</h1>
+{% for post in posts %}
+<li><a href="{% url 'post' post %}">Post</a></li>
+{% endfor %}
+{%else%}
+{% if text == '' %}
+Your text is empty
+{% else %}
+Your text is: {{text}}
+<br><br>
+The text is {{length}} characters long</br>
+The amount of word is {{amount}}
+{% endif %}
+{% endif %}
