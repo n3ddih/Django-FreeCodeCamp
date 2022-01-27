@@ -11,6 +11,10 @@
 			margin-left: 0px; 
 			margin-right: 0px;
 		}
+		.tempView img {
+    		vertical-align: middle;
+			margin-top: -16;
+		}
 	</style>
 </head>
 <body>
@@ -33,11 +37,14 @@
 	{% if name is not None %}
 	<div class="row">
 		<div class="col-md-6">
-			<h1>{{name}}, {{country_code}} </h1>
+			<h2 style="margin-top: 0px;">{{name}}, {{country_code}} </h2>
+			<div class="tempView">
+				<img src="http://openweathermap.org/img/wn/{{weather_icon}}.png">
+				<span style="font-size: 44px;">{{temp}}</span>
+			</div>
 			<ul>
 				<li><h5>Coordinate: {{coordinate}} </h5></li>
 				<li><h5>Weather: {{weather}} </h5></li>
-				<li><h5>Temperature: {{temp}} </h5></li>
 				<li><h5>Air pressure: {{pressure}} </h5></li>
 				<li><h5>Humidity: {{humidity}}</h5></li>
 			</ul>
